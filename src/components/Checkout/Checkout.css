@@ -1,0 +1,13 @@
+.border-bottom {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+  }
+th{
+    color: gray;
+}
+th, td {
+    padding: 15px;
+  }
+.total{
+    font-weight: 600;
+}
