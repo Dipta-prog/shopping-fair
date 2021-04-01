@@ -1,6 +1,6 @@
 Website Name: Everyday Shop
 code: 
-Website: 
+Website: https://fresh-valley-auth.web.app
 
 features:
 1. Private route

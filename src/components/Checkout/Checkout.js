@@ -16,7 +16,7 @@ const Checkout = () => {
     let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
     let todayDate = `${date}/${month}/${year}`
-    console.log("from book.js we get time: ", todayDate);
+    // console.log("from book.js we get time: ", todayDate);
 
 
     useEffect(() => {
@@ -30,14 +30,14 @@ const Checkout = () => {
 
 
     const handleCheckOut = () => {
-        console.log('btn clicked');
+        // console.log('btn clicked');
         const tempInfo = {};
         tempInfo.productName = selectedItem.name;
         tempInfo.email = loggedInUser.email;
         tempInfo.date = todayDate;
         tempInfo.price = selectedItem.price;
         tempInfo.productImg = selectedItem.photo;
-        console.log(tempInfo);
+        // console.log(tempInfo);
 
 
         const url = 'https://lychee-cupcake-61240.herokuapp.com/addOrderedProduct';

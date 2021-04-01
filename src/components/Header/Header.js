@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <div className="container">
             <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-                <Link style={{ fontWeight: '800', fontSize: '25px' }} className="navbar-brand" to='/home'>Everyday Shop</Link>
+                <Link style={{ fontWeight: '800', fontSize: '25px' }} className="navbar-brand" to='/home'>Shopping Fair</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

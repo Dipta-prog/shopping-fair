@@ -34,11 +34,11 @@ const Admin = () => {
             .then(data => setProducts(data))
     }, [])
 
-    console.log("from manage product", products);
+    // console.log("from manage product", products);
 
 
     // const [tempInfo,setTempInfo]=useState({});
-    console.log("all combined info", addProductAllData);
+    // console.log("all combined info", addProductAllData);
 
     const handleClickForManageProduct = () => {
         setManageProduct(true);
@@ -99,19 +99,19 @@ const Admin = () => {
             const tempInfo = { ...addProductAllData };
             tempInfo.name = (event.target.value);
             setAddProductAllData(tempInfo);
-            // (event.target.value);
+            // event.target.value = '';
         }
         if (event.target.name === 'productPrice') {
             const tempInfo = { ...addProductAllData };
             tempInfo.price = (event.target.value);
             setAddProductAllData(tempInfo);
-            // (event.target.value);
+            // event.target.value = '';
         }
         if (event.target.name === 'productWight') {
             const tempInfo = { ...addProductAllData };
             tempInfo.weight = (event.target.value);
             setAddProductAllData(tempInfo);
-            // (event.target.value);
+            // event.target.value='';
         }
         // if (event.target.name === 'productImg') {
         //     const tempInfo = {...addProductAllData};
@@ -122,7 +122,8 @@ const Admin = () => {
         // }
     }
     const handleAddProduct = (event) => {
-        console.log(addProductAllData.photo !== '')
+        // console.log('from add product function',event.target);
+        // console.log(addProductAllData.photo !== '')
         event.preventDefault();
         console.log('from handle add product', addProductAllData);
         const url = 'https://lychee-cupcake-61240.herokuapp.com/addProduct';
@@ -134,10 +135,15 @@ const Admin = () => {
             body: JSON.stringify(addProductAllData)
         })
             .then(res => console.log('server side response', res));
+
+        event.target[0].value = '';
+        event.target[1].value = '';
+        event.target[2].value = '';
+        event.target[3].value = '';
     }
 
 
-    
+
     return (
         <div className="container">
             {

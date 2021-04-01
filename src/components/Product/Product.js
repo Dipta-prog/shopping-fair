@@ -21,7 +21,7 @@ export default function Services(props) {
               <h6 style={{ fontWeight: '700', fontSize: '18px' }}>{name}-{weight}</h6>
               <br />
               <div className="d-flex justify-content-between">
-                <h5 style={{ paddingTop: '18px' }}>{price}</h5>
+                <h5 style={{ paddingTop: '18px' }}>${price}</h5>
                 <button className="button"><Link style={{ textDecoration: 'none', color: 'white' }} to={`/checkout/${_id}`}>Buy Now</Link></button>
               </div>
             </div>

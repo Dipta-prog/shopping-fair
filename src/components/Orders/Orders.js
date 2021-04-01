@@ -7,7 +7,7 @@ import { UserContext } from '../../App';
 const Orders = () => {
     const [loadingSpinner,setLoadingSpinner] = useState(true);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser.email);
+    // console.log(loggedInUser.email);
     const [orderedProducts, setOrderedProducts] = useState([]);
     useEffect(() => {
         // setAllItems(items);
