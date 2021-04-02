@@ -3,11 +3,13 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
-import './Checkout.css'
+import './Checkout.css';
+import { useHistory } from 'react-router-dom';
 
 const Checkout = () => {
-    const [loadingSpinner,setLoadingSpinner] = useState(true);
+    const [loadingSpinner, setLoadingSpinner] = useState(true);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const history = useHistory();
     // console.log("from ...................", loggedInUser.email);
     const { id } = useParams();
     const [selectedItem, setSelectedItem] = useState({});
@@ -17,13 +19,14 @@ const Checkout = () => {
     let year = newDate.getFullYear();
     let todayDate = `${date}/${month}/${year}`
     // console.log("from book.js we get time: ", todayDate);
-
+    // console.log(selectedItem);
+    
 
     useEffect(() => {
         fetch(`https://lychee-cupcake-61240.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setSelectedItem(data))
-            setLoadingSpinner(false);
+        setLoadingSpinner(false);
 
     }, [id])
 
@@ -48,8 +51,18 @@ const Checkout = () => {
             },
             body: JSON.stringify(tempInfo)
         })
-            .then(res => console.log('server side response', res));
+            .then(res => {
+                console.log('server side response', res.status);
+                if (res.status === 200) {
+                    history.push("/orders");
+                }
+
+            });
+
     }
+
+
+
     // console.log(addUserData);
 
     return (
@@ -77,7 +90,7 @@ const Checkout = () => {
                         <tbody>
                             <tr className="border-bottom">
                                 <td>{selectedItem.name}</td>
-                                <td>1</td>
+                                <td>{selectedItem.quantity}</td>
                                 <td>{selectedItem.price}</td>
                             </tr>
                             <tr>

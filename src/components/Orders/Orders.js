@@ -15,7 +15,7 @@ const Orders = () => {
             .then(res => res.json())
             .then(data => setOrderedProducts(data))
             setLoadingSpinner(false);
-    }, [loggedInUser.email])
+    }, [])
     return (
         <div>
             {
@@ -34,7 +34,7 @@ const Orders = () => {
                         <tr className="border-bottom">
                             <th>Product Image</th>
                             <th>Product Name</th>
-                            <th>Product Price</th>
+                            <th>Product Price($)</th>
                             <th>Purchase Date</th>
                         </tr>
                     </thead>

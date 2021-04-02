@@ -1,12 +1,12 @@
-Website Name: Everyday Shop
-code: 
+Website Name: Shopping Fair
+code: https://github.com/Porgramming-Hero-web-course/full-stack-client-Dipta-prog
 Website: https://fresh-valley-auth.web.app
 
 features:
 1. Private route
 2. Interective ui
-3. user authentication (google,email)
-4. database based information storing
-5. add products
-6. delete Products
-7. private route
+3. User authentication (google,email)
+4. Database based information storing
+5. Add products works with image & without image. If image choose a img than it uploads to a online image api. So to get link it takes time to upload the photo. I have added a feature that insure user chosen img is uploaded successfully and than product can be added to database. 
+6. Delete Products button works with instantly updated list.
+7. Checkout Button redirect to orders page(with updated list)

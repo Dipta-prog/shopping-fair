@@ -129,7 +129,7 @@ const Login = () => {
     }
     event.preventDefault();
   }
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
 
   const updateUserInformation = (name) => {
     const user = firebase.auth().currentUser;
