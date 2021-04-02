@@ -41,9 +41,6 @@ const Login = () => {
       });
   }
 
-  // const storeAuthToken = () => {
-  // }
-
   const handleBlur = (event) => {
     let isFieldValid;
     if (event.target.name === 'email') {
@@ -60,7 +57,6 @@ const Login = () => {
         setConfirmPassword(event.target.value);
         console.log('inside confirmPassword');
       }
-      // = password
     }
 
     if (event.target.name === 'password') {
@@ -86,8 +82,6 @@ const Login = () => {
       console.log('submitting');
       firebase.auth().createUserWithEmailAndPassword(loggedInUser.email, loggedInUser.password)
         .then((userCredential) => {
-          // Signed in 
-          // var user = userCredential.user;
           const newUserInfo = { ...loggedInUser };
           newUserInfo.error = '';
           newUserInfo.success = true;
@@ -107,20 +101,16 @@ const Login = () => {
     if (newUser && loggedInUser.email && loggedInUser.password) {
       firebase.auth().signInWithEmailAndPassword(loggedInUser.email, loggedInUser.password)
         .then((userCredential) => {
-          // Signed in
-          // const user = userCredential.user;
           const newUserInfo = { ...loggedInUser };
           newUserInfo.error = '';
           newUserInfo.success = true;
-          newUserInfo.name = userCredential.user.displayName; /* header condition*/
+          newUserInfo.name = userCredential.user.displayName;
           newUserInfo.isSignedIn = true;
           console.log('sign in with email & pass', userCredential.user.displayName);
           setLoggedInUser(newUserInfo);
           history.replace(from);
         })
         .catch((error) => {
-          // var errorCode = error.code;
-          // var errorMessage = error.message;
           const newUserInfo = { ...loggedInUser };
           newUserInfo.success = false;
           newUserInfo.error = error.message;
@@ -129,11 +119,9 @@ const Login = () => {
     }
     event.preventDefault();
   }
-  // console.log(loggedInUser);
 
   const updateUserInformation = (name) => {
     const user = firebase.auth().currentUser;
-
     user.updateProfile({
       displayName: name
     }).then(function () {

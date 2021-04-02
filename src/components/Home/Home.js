@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 
 const Home = () => {
-
     const [products, setProducts] = useState([]);
-    // const [allItems, setAllItems] = useState([]);
 
     useEffect(() => {
         fetch('https://lychee-cupcake-61240.herokuapp.com/products')

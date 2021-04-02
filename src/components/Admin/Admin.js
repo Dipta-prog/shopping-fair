@@ -3,25 +3,15 @@ import './Admin.css'
 import window from '../../all_Images/icons/grid 1.png';
 import pen from '../../all_Images/icons/edit 1.png';
 import plus from '../../all_Images/icons/plus 1.png';
-// import editBtn from '../../all_Images/icons/Group 307.png';
-// import deleteBtn from '../../all_Images/icons/Group 33150.png';
 import { useState } from 'react';
 import axios from 'axios';
-// import { useEffect } from 'react';
-// import { useHistory, useLocation } from 'react-router';
-// import { Link } from 'react-router-dom';
 import ManageProduct from '../ManageProduct/ManageProduct';
 
 const Admin = () => {
-    // const [products, setProducts] = useState([]);
     const [manageProduct, setManageProduct] = useState(false);
     const [addProduct, setAddProduct] = useState(true);
     const [editProduct, setEditProduct] = useState(false);
     const [fileSelected, setFileSelected] = useState(true);
-    // const [imgUrl, setImgUrl] = useState(null);
-    // const location = useLocation();
-    // const history = useHistory();
-    // const imgData = new FormData();
     const [addProductAllData, setAddProductAllData] = useState({
         name: '',
         weight: '',
@@ -29,21 +19,6 @@ const Admin = () => {
         photo: '',
         quantity: '1'
     });
-
-
-    // useEffect(() => {
-    //     fetch('https://lychee-cupcake-61240.herokuapp.com/products')
-    //         .then(res => res.json())
-    //         .then(data => setProducts(data))
-    // }, [])
-
-
-
-    // console.log("from manage product", products);
-
-
-    // const [tempInfo,setTempInfo]=useState({});
-    // console.log("all combined info", addProductAllData);
 
     const handleClickForManageProduct = () => {
         setManageProduct(true);
@@ -61,26 +36,10 @@ const Admin = () => {
         setEditProduct(true);
     }
 
-    // const handleDeleteProduct = (productIndex, id) => {
-    //     // console.log('delete product from database', id,productIndex);
-    //     fetch(`https://lychee-cupcake-61240.herokuapp.com/deleteProduct/${id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             console.log('deleted successfully', result.deleteCount);
-    //             if (result.deleteCount === 1) {
-    //                 document.getElementById(productIndex).style.display = 'none';
-    //             }
-    //         })
-    // }
-
     const handleImgUpload = (event) => {
-        console.log(event.target.files[0]);
         const imgData = new FormData();
         imgData.set('key', '07e3f5810f445d3150142c8ea40f5780');
         imgData.append('image', event.target.files[0])
-        // console.log("image data test", imgData);
         setFileSelected(false);
 
 
@@ -101,8 +60,6 @@ const Admin = () => {
     }
 
     const handleBlur = (event) => {
-        // 'from handle blur,img', 
-        // console.log(event.target.name);
         if (event.target.name === 'productName') {
             const tempInfo = { ...addProductAllData };
             tempInfo.name = (event.target.value);
@@ -119,14 +76,10 @@ const Admin = () => {
             setAddProductAllData(tempInfo);
         }
     }
-    console.log('file selected', fileSelected);
+
     const handleAddProduct = (event) => {
-        // console.log('from add product function',event.target);
-        // console.log(addProductAllData.photo !== '')
         event.preventDefault();
-        console.log('from handle add product', addProductAllData);
         if (fileSelected) {
-            
             const url = 'https://lychee-cupcake-61240.herokuapp.com/addProduct';
             fetch(url, {
                 method: 'POST',
@@ -149,7 +102,6 @@ const Admin = () => {
     }
 
 
-
     return (
         <div className="container">
             {/* side menu */}
@@ -157,9 +109,9 @@ const Admin = () => {
                 <div className="col-md-3 menu-div" style={{ backgroundColor: "black" }}>
                     <div className="d-flex justify-content-center">
                         <div className=" menu-container">
-                            <p onClick={handleClickForManageProduct} className="row menu"> <img className="iconStyle" src={window} alt="" /> Manage Products</p>
-                            <p onClick={handleClickForAddProduct} className="row menu"> <img className="iconStyle" src={plus} alt="" /> Add Products</p>
-                            <p onClick={handleClickForEditProduct} className="row menu"> <img className="iconStyle" src={pen} alt="" /> Edit Products</p>
+                            <p id="manageProducts" onClick={handleClickForManageProduct} className="row menu"> <img className="iconStyle" src={window} alt="" /> Manage Products</p>
+                            <p id="addProducts" onClick={handleClickForAddProduct} className="row menu"> <img className="iconStyle" src={plus} alt="" /> Add Products</p>
+                            <p id="editProducts" onClick={handleClickForEditProduct} className="row menu"> <img className="iconStyle" src={pen} alt="" /> Edit Products</p>
                         </div>
                     </div>
                 </div>

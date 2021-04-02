@@ -5,16 +5,14 @@ import { useEffect } from 'react';
 import { UserContext } from '../../App';
 
 const Orders = () => {
-    const [loadingSpinner,setLoadingSpinner] = useState(true);
+    const [loadingSpinner, setLoadingSpinner] = useState(true);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    // console.log(loggedInUser.email);
     const [orderedProducts, setOrderedProducts] = useState([]);
     useEffect(() => {
-        // setAllItems(items);
         fetch('https://lychee-cupcake-61240.herokuapp.com/orderedProducts?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrderedProducts(data))
-            setLoadingSpinner(false);
+        setLoadingSpinner(false);
     }, [])
     return (
         <div>
@@ -53,7 +51,9 @@ const Orders = () => {
                         }
                     </tbody>
                 </table>
-
+                {
+                    orderedProducts.length === 0 && <h2 className="d-flex mt-5 justify-content-center text-primary">You have not ordered any products</h2>
+                }
             </div>
         </div>
     );

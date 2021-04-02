@@ -11,7 +11,6 @@ const ManageProduct = () => {
     }, [])
 
     const handleDeleteProduct = (productIndex, id) => {
-        // console.log('delete product from database', id,productIndex);
         fetch(`https://lychee-cupcake-61240.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE'
         })
@@ -36,30 +35,30 @@ const ManageProduct = () => {
                 </div>
             }
             <table className="container">
-                            <thead>
-                                <tr className="border-bottom">
-                                    <th>Product Name</th>
-                                    <th>Wight</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
+                <thead>
+                    <tr className="border-bottom">
+                        <th>Product Name</th>
+                        <th>Wight</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        products.map((product, index) => {
+                            return (
+                                <tr id={index} className="border-bottom">
+                                    <td>{product.name}</td>
+                                    <td>{product.weight}</td>
+                                    <td>{product.price}</td>
+                                    <td><span><img className="btnImg" src={editBtn} alt="" /></span> <span onClick={() => handleDeleteProduct(index, product._id)}><img className="btnImg" src={deleteBtn} alt="" /></span></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    products.map((product, index) => {
-                                        return (
-                                            <tr id={index} className="border-bottom">
-                                                <td>{product.name}</td>
-                                                <td>{product.weight}</td>
-                                                <td>{product.price}</td>
-                                                <td><span><img className="btnImg" src={editBtn} alt="" /></span> <span onClick={() => handleDeleteProduct(index, product._id)}><img className="btnImg" src={deleteBtn} alt="" /></span></td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
-                    
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+
         </div>
     );
 };

@@ -8,7 +8,6 @@ export default function Services(props) {
   return (
 
     <div >
-
       <div class="col">
         <div className="card mb-4 shadow" style={{ borderRadius: '10px' }}>
           <div className="d-flex text-center" style={{ paddingTop: "20px" }}>

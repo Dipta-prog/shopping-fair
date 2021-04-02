@@ -34,8 +34,6 @@ const Header = () => {
                         <li className="nav-item active mx-3">
                             {!(loggedInUser.isSignedIn) && <span type="submit"><Link class="btn btn-outline-success my-sm-0" to='/login'>Login</Link></span>}
                             {(loggedInUser.isSignedIn) && <span class="btn my-sm-0" type="submit">{loggedInUser.photoURL && <img style={{ borderRadius: "20px", width: "35%", padding: "3px" }} src={loggedInUser.photoURL} alt=""></img>} {(loggedInUser.photo === '') && <div> {loggedInUser.name}</div>}</span>}
-
-                            {/* {loggedInUser.name} */}
                         </li>
                     </ul>
                 </div>
