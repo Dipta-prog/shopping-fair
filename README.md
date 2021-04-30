@@ -1,6 +1,6 @@
 Website Name: Shopping Fair
-code: https://github.com/Dipta-prog/shopping-fair-client
-Website: https://fresh-valley-auth.web.app
+Client: https://github.com/Dipta-prog/shopping-fair-client
+Server: https://github.com/Dipta-prog/shopping-fair-server
 
 Features:
 1. Private route
