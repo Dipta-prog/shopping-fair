@@ -1,8 +1,8 @@
 Website Name: Shopping Fair
-code: https://github.com/Porgramming-Hero-web-course/full-stack-client-Dipta-prog
+code: https://github.com/Dipta-prog/shopping-fair-client
 Website: https://fresh-valley-auth.web.app
 
-features:
+Features:
 1. Private route
 2. Admin page, Client page
 3. User authentication (google,email)
